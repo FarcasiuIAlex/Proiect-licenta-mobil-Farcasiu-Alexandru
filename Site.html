@@ -1,0 +1,62 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>  
+    <link rel="icon" href="suncl1.png"> <!--de sus -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="Script.js" defer></script>
+    <title>Grafice</title>
+
+    <link rel="stylesheet" href="Style.css">
+    <img id="leaves-img" img class="apple" src="leaves.png" alt="Apple Image"> <!--de jos -->
+</head>                                    
+<body>
+    <nav class="navbar">
+        <h1>Grafice</h1>
+    </nav>
+
+    <audio controls loop autoplay>
+        <source src="forest-ambience-with-cuckoo-birds-chirping-123046.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
+    <!-- Container for buttons -->
+    
+    <button id="redirectButtonBacktoMainpage" style="color: yellowgreen;background-color: transparent;-webkit-text-stroke: 2px black;
+    font-size: 32px; font-weight: bold; position: absolute; top: 20px;left: 8px;border: 3px solid;border-color:transparent;border-radius: 10px;width: 180px;height: 150px;"
+    title="Înapoi la Pagina Principală"   >Pagina principală</button>
+
+    <div class="button-container">
+        <!--Chart umiditate-->
+        <button onclick="toggleChart('umiditate')" title="BUTON Afișare Grafic Umiditate" >Umiditatea</button>
+        <button onclick="toggleChart('temperatura')" title="BUTON  Afișare Grafic Temperatura °C" >Temperatura °C</button>
+        <button onclick="toggleChart('lux')" title="BUTON Afișare Grafic Iluminare" >Iluminare</button>
+        <button onclick="toggleChart('tempf')" title="BUTON Afișare Grafic Temperatura °F" >Temperatura °F</button>
+        <button onclick="toggleChart('Presiunea')" title="BUTON Afișare Grafic Presiunea atmosferică" >Presiunea atmosferică</button>
+        <button onclick="toggleChart('Alarma')" title="BUTON Afișare Grafic Alarma" >Alarma</button>
+        
+        <!-- <button onclick="toggleChart('windy')">Harta Meteo</button> -->
+
+    </div>
+    
+    <!-- Container for charts -->
+    <div class="chart-container">
+        <!--Chart umiditate-->
+        <iframe id="umiditate" src="https://thingspeak.com/channels/2344711/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=Umiditatea&type=line"></iframe>
+        <!--Chart temperatura-->
+        <iframe id="temperatura" src="https://thingspeak.com/channels/2344711/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=Temperatura&type=line"></iframe>
+        <!--Chart lux-->
+        <iframe id="lux" src="https://thingspeak.com/channels/2344711/charts/3?bgcolor=%23ffffff&color=%23d62020&results=60&title=Lux"></iframe>
+        <!--Chart tempf-->
+        <iframe id="tempf" src="https://thingspeak.com/channels/2344711/charts/4?bgcolor=%23ffffff&color=%23d62020&results=60&title=Farenheit"></iframe>
+        <!--Chart Presiunea-->
+        <iframe id="Presiunea" src="https://thingspeak.com/channels/2344711/charts/5?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=Presiunea+atmosferica&type=line"></iframe>
+        <!--Chart Altitudine-->
+        <iframe id="Alarma" src="https://thingspeak.com/channels/2344711/charts/6?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&title=Alarma&type=line"></iframe>
+      <!--
+        <iframe id="windy" src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=default&metricTemp=default&metricWind=default&zoom=5&overlay=wind&product=ecmwf&level=surface&lat=45.89&lon=24.406" width="650" height="450" frameborder="0"></iframe>
+    -->
+    </div>
+    
+    </body>
+
+</html>

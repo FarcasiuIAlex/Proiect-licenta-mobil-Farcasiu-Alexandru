@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="termometer.png"> <!-- asta e de iconul de sus la pagina -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="StyleMain.css">
+    <script src="ScriptMain.js" defer></script>
+    <title>Monitorizarea Parametrilor Climatici</title>
+</head>
+
+<body>
+    <audio controls loop autoplay>
+        <source src="relaxing-ocean-waves-high-quality-recorded-177004.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
+    <nav class="navbar">
+        <h1>Monitorizarea Parametrilor Climatici</h1>
+        <button id="redirectButton" style="color: black; font-size: 16px; font-weight: bold; position: absolute; top: 2%;left: 4%;border: 3px solid;border-color: rgb(0, 0, 0);border-radius: 10px;"title="BUTON Pagina WEB cu grafice" >Grafice</button>
+
+        <button id="redirectButtonFIH" style="color: black; font-size: 16px; font-weight: bold; position: absolute; top: 2%; right: 6%;border: 3px solid;border-color: rgb(0, 0, 0);border-radius: 10px;"title="BUTON Pagina Facultății de Inginerie din Hunedoara" >Link FIH</button>
+
+        
+        <img id="termometer-img" src="termometer.png" alt="Your Icon" style="position: absolute; top: 250px; left: 350px; width: 100px; height: 100px;">
+        <img id="humidity-img" src="humidity.png" alt="Your Icon" style="position: absolute; top: 500px; left: 350px; width: 100px; height: 100px;">
+        <img id="summer-img" src="summer.png" alt="Your Icon" style="position: absolute; top: 250px; right: 350px; width: 100px; height: 100px;">
+        <img id="termoF-img" src="termoF.png" alt="Your Icon" style="position: absolute; top:500px; right: 350px; width: 100px; height: 100px;">
+        <img id="pressure-gauge-img" src="pressure-gauge.png" alt="Your Icon" style="position: absolute; top: 760px; right: 350px; width: 100px; height: 100px;">
+        <img id="smoke-detector (1)" src="smoke-detector (1).png" alt="Your Icon" style="position: absolute; top: 750px; left: 350px; width: 100px; height: 100px;">
+
+    
+        <img id="earth-image" src="earth.png" alt="Your Icon" style="position: absolute; top: 960px; left: 250px; width: 100px; height: 100px;">
+        <img id="cloud-image" src="cloud.png" alt="Your Icon" style="position: absolute; top: 960px; left: 50px; width: 100px; height: 100px;">
+
+
+    </nav>
+
+    <h2> Temperatura (°C)  </h2>
+    <h3>  Umiditatea (%)   </h3>
+    <h4>  Iluminarea (Lux)   </h4>
+    <h5>  Temperatura (°F)   </h5>
+    <h6>  Presiunea    (mmHg) <br> atmosferica </br> </h6>
+    <h7> <b> Alarma de fum </b>  </h7>
+    
+    <!-- Rest of your content -->
+    <iframe width="200" height="200" style="border: 1px solid #cccccc; position: absolute; top: 200px; left: 10px;" src="https://thingspeak.com/channels/2344711/widgets/814653"></iframe><!-- tempc iframe -->
+    <iframe width="200" height="200" style="border: 1px solid #cccccc; position: absolute; top: 450px; left: 10px;" src="https://thingspeak.com/channels/2344711/widgets/814661"></iframe><!-- umiditatea -->
+    <iframe width="200" height="200" style="border: 1px solid #cccccc; position: absolute; top: 200px; right: 10px;" src="https://thingspeak.com/channels/2344711/widgets/815311"></iframe><!-- lux -->
+    <iframe width="200" height="200" style="border: 1px solid #cccccc; position: absolute; top: 450px; right: 10px;" src="https://thingspeak.com/channels/2344711/widgets/815788"></iframe><!-- tempf -->
+    <iframe width="200" height="200" style="border: 1px solid #cccccc; position: absolute; top: 710px; right: 10px;" src="https://thingspeak.com/channels/2344711/widgets/816160"></iframe><!-- pres -->
+    <iframe width="200" height="200" style="border: 1px solid #cccccc; position: absolute; top: 710px; left: 10px;" src="https://thingspeak.com/channels/2344711/widgets/816175"></iframe><!-- alarma -->
+    
+    <button id ="Harta buton" 
+    style="color: transparent;background-color: transparent; font-size: 16px; font-weight: bold; position: absolute; top: 990px; left: 29px; border: 5px solid; border-color:transparent; border-radius: 10px; height: 98px; width: 100px;"
+     onclick="toggleChart('Harta meteo')"title="BUTON Afișare Hartă Meteo">Harta meteo</button>
+    
+    <iframe id="Harta meteo" width="650" height="450" frameborder="0" style="border: 1px solid #cccccc;  position: absolute; bottom: -140%; left: 1%;visibility: hidden;" src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=default&metricTemp=default&metricWind=default&zoom=5&overlay=wind&product=ecmwf&level=surface&lat=45.89&lon=24.406"></iframe>
+    
+    <button id="Locatia buton" 
+    style="color: transparent;background-color: transparent; font-size: 16px; font-weight: bold; position: absolute; top: 990px; left: 230px; border: 5px solid; border-color:transparent; border-radius: 10px; height: 101px; width: 100px;" 
+    onclick="toggleChart('Locatia')"title="BUTON Afișare Locație">Locatia</button>
+   
+    <iframe id="Locatia" width="550" height="770" frameborder="0" style="border: 1px solid #cccccc; position: absolute; bottom: -140%; right: 1%;visibility: hidden;" src="https://iplookup.easy365manager.com/iplookup" height="600"></iframe>
+   
+
+    <button id="TempC" 
+    style="color: transparent;background-color: transparent; font-size: 16px; font-weight: bold; position: absolute; top: 280px; left: 330px; border: 5px solid; 
+    border-color:transparent; border-radius: 10px; height: 101px; width: 100px;" 
+    title=" 'Gradele Celsius sunt o unitate de măsură a temperaturii în sistemul metric, denumită în onoarea astronomului suedez Anders Celsius. În acest sistem, punctul de îngheț al apei este definit la 0 grade Celsius, iar punctul de fierbere al apei la presiune normală este de 100 de grade Celsius. Această scară de temperatură este folosită pe scară largă în întreaga lume pentru a măsura temperaturile mediului ambiant, ale apei, ale solului și ale altor substanțe.' 
+     -Masurat cu senzorul DHT 22."
+    >TemperaturaC</button>
+
+    <button id="Umiditate%" 
+    style="color: transparent;background-color: transparent; font-size: 16px; font-weight: bold; position: absolute; top: 535px; left: 330px; border: 5px solid; 
+    border-color:transparent; border-radius: 10px; height: 101px; width: 100px;" 
+    title=" 'Umiditatea este o măsură a cantității de vapori de apă prezente în aer sau în alte substanțe. Este o caracteristică importantă a atmosferei și a mediului înconjurător, influențând confortul termic și sănătatea umană, precum și procesele naturale și industriale. Umiditatea este exprimată în procente și poate fi măsurată în diverse moduri, inclusiv cu ajutorul higrometrelor sau a altor instrumente specializate.' 
+     -Masurat cu senzorul DHT 22."
+    >Umiditatea</button>
+
+    <button id="Lux" 
+    style="color: transparent;background-color: transparent; font-size: 16px; font-weight: bold; position: absolute; top: 280px; right: 270px; border: 5px solid; 
+    border-color:transparent; border-radius: 10px; height: 101px; width: 100px;" 
+    title=" 'Iluminarea (Lux) este o unitate de măsură a iluminării sau luminozității, definită ca fluxul luminos care cade pe o suprafață de un metru pătrat, sau lumen pe metru pătrat (lm/m²). Este utilizată pentru a măsura nivelul de lumină perceput de un obiect sau de un mediu. Cu cât un mediu este mai iluminat, cu atât are o valoare mai mare în lux.' 
+     -Masurat cu senzorul TEMT 6000."
+    >Lux</button>
+     
+    <button id="Tempf" 
+    style="color: transparent;background-color: transparent; font-size: 16px; font-weight: bold; position: absolute; top: 535px; right: 260px; border: 5px solid; 
+    border-color:transparent; border-radius: 10px; height: 101px; width: 100px;" 
+    title=" 'Gradele Fahrenheit reprezintă o unitate de măsură a temperaturii în sistemul imperial, în care punctul de îngheț al apei este stabilit la 32 de grade Fahrenheit (°F), iar punctul de fierbere al apei este la 212 °F, ambele la presiune atmosferică standard. Acest sistem a fost dezvoltat în secolul al XVIII-lea de către fizicianul Daniel Gabriel Fahrenheit.' 
+     -Masurat cu senzorul DHT 22."
+    >TemperaturaF</button>
+
+    <button id="Presiunea" 
+    style="color: transparent;background-color: transparent; font-size: 16px; font-weight: bold; position: absolute; top: 795px; right: 250px; border: 5px solid; 
+    border-color:transparent; border-radius: 10px; height: 101px; width: 100px;" 
+    title=" 'Presiunea atmosferică este forța exercitată de coloana de aer deasupra unei anumite zone de suprafață. Ea este rezultatul greutății aerului care presează asupra Pământului și este influențată de factori precum altitudinea, temperatura și condițiile meteorologice.' 
+     -Masurat cu senzorul BMP 280 GY."
+    >Presiunea</button>
+
+    <button id="Alarma" 
+    style="color: transparent;background-color: transparent; font-size: 16px; font-weight: bold; position: absolute; top: 780px; left: 330px; border: 5px solid; 
+    border-color:transparent; border-radius: 10px; height: 101px; width: 100px;" 
+    title="'Fumul și noxele rezultate din arderea diferitelor materiale prezintă numeroase pericole pentru sănătatea umană și siguranța generală. Aceste substanțe pot fi toxice și pot avea efecte adverse asupra corpului uman, în special atunci când sunt inhalate în cantități mari sau pe termen lung.' 
+     -Masurat cu senzorul MQ-2."
+    >Alarma</button>
+
+
+<script src="ScriptMain.js"></script>
+
+</body>
+
+</html>
